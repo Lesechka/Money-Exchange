@@ -1,9 +1,9 @@
 // PLEASE DON'T change function name
 module.exports = function makeExchange(currency) {
-    if (currency>10000) {
+    if (currency > 10000) {
       return {error: "You are rich, my friend! We don't have so much coins for exchange"};
     }
-    var currencies = {
+    const currencies = {
       "H":50,
       "Q":25,
       "D":10,
@@ -11,11 +11,11 @@ module.exports = function makeExchange(currency) {
       "P":1
     };
 
-    var result = {};
+    let result = {};
 
-    for (var key in currencies) {
+    for (let key in currencies) {
       if (currency >= currencies[key]){
-        var value = Math.floor(currency / currencies[key]);
+        const value = Math.floor(currency / currencies[key]);
         result[key] = value;
         currency -= value * currencies[key];
       }
